@@ -18,17 +18,22 @@
 * **Language:** NetLogo Language
 * **Algorithm:** Double Auction (이중 경매 알고리즘), Smart Contract Logic
 
-## 4. Key Features & Logic (핵심 기능 및 설계)
-*(여기에 NetLogo 시뮬레이션 실행 화면 캡처나 구조도를 넣으면 좋습니다)*
+## 4. Simulation Scenarios (시뮬레이션 시나리오)
+본 프로젝트는 목적에 따라 두 가지 시간 스케일(Time Scale)로 시뮬레이션을 이원화하여 구현하였습니다.
 
-### 4-1. Agent Modeling (에이전트 설계)
-* **Prosumer (생산자 겸 소비자):** 태양광 발전량과 자체 소비량에 따라 '판매자(Seller)' 또는 '구매자(Buyer)'로 상태가 동적으로 변함.
-* **Smart Contract Node:** 거래 조건을 검증하고 원장에 기록하는 논리적 노드 구현.
+### 4-1. Micro-scale Simulation (Tick = 1 sec)
+* **목표:** 실시간 거래 환경에서의 **시스템 안정성 및 보안(Security)** 검증.
+* **핵심 기능:**
+    * **공격 방어 메커니즘:** 악의적인 노드의 비정상 거래 시도나 트랜잭션 과부하 공격에 대한 방어 로직 구현.
+    * **세부 거래 로직:** 초 단위의 전력 변동에 따른 스마트 컨트랙트 체결 정확도 테스트.
+* **사용 파일:** `ticks1s_final.nlogo`
 
-### 4-2. Trading Algorithm (거래 알고리즘)
-1.  **Bidding (입찰):** 각 에이전트는 현재 보유 전력량과 시장 가격을 기반으로 매도/매수 주문 생성.
-2.  **Matching (매칭):** **Double Auction(이중 경매)** 방식을 통해 최적의 거래 가격 도출 및 거래 체결.
-3.  **Settlement (청산):** 체결된 거래 내역을 리스트(Simulated Blockchain)에 업데이트하고 에너지/토큰 잔액 갱신.
+### 4-2. Macro-scale Simulation (Tick = 6 hours)
+* **목표:** 장기적인 에너지 수급 패턴 분석 및 **RE100 등 비즈니스 모델** 실효성 검증.
+* **핵심 기능:**
+    * **장기 관찰:** 계절별/일별 태양광 발전량 변화와 소비 패턴을 장기간 추적.
+    * **사업성 분석:** 잉여 전력 거래를 통해 얻을 수 있는 경제적 이익과 RE100 달성 가능성 시뮬레이션.
+* **사용 파일:** `ticks6h_final.nlogo`
 
 ## 5. Simulation Results (결과)
 * **실험 환경:** 총 N개의 에이전트(Prosumer 50, Consumer 50 등) 생성.
