@@ -21,12 +21,25 @@
 ## 4. Simulation Scenarios (시뮬레이션 시나리오)
 본 프로젝트는 목적에 따라 두 가지 시간 스케일(Time Scale)로 시뮬레이션을 이원화하여 구현하였습니다.
 
-### 4-1. Micro-scale Simulation (Tick = 1 sec)
-* **목표:** 실시간 거래 환경에서의 **시스템 안정성 및 보안(Security)** 검증.
-* **핵심 기능:**
-    * **공격 방어 메커니즘:** 악의적인 노드의 비정상 거래 시도나 트랜잭션 과부하 공격에 대한 방어 로직 구현.
-    * **세부 거래 로직:** 초 단위의 전력 변동에 따른 스마트 컨트랙트 체결 정확도 테스트.
-* **사용 파일:** `ticks1s_final.nlogo`
+### 4-1. Micro-scale Simulation (Tick = 1 sec) : Security Focus
+실시간 전력 거래 환경에서 발생할 수 있는 **악의적 공격(Malicious Attack)과 시스템의 방어 로직**을 검증하는 데 초점을 맞추었습니다.
+
+#### 🛠 Key Logic & Implementation
+1.  **State-Based Behavior (상태 기반 동작):**
+    * 각 노드는 매초(`1 tick`) 달라지는 발전량/소비량에 따라 **Buyer ↔ Seller** 역할을 동적으로 스위칭합니다.
+    * 넷로고의 `turtles-own` 변수를 활용하여 각 에이전트의 에너지 잔고(Balance)와 지갑(Wallet) 상태를 실시간 추적합니다.
+
+2.  **Malicious Node Simulation (공격 시뮬레이션):**
+    * 전체 네트워크의 `X%`를 악의적 노드로 설정하여, 보유하지 않은 에너지를 판매하려는 **허위 트랜잭션(False Transaction)**을 지속적으로 생성합니다.
+    * *Code Snippet:* `if malicious? [ set offer-amount (energy + random-float 10.0) ]` (실제 보유량보다 과장된 주문 생성)
+
+3.  **Smart Contract Validation (보안 검증):**
+    * 거래 체결 전, **Pre-validation Logic**이 실행되어 판매자의 실제 가용 에너지를 검증합니다.
+    * 검증 실패 시 해당 트랜잭션은 **Invalid**로 간주하여 멤풀에서 즉시 폐기(Drop)하며, 이를 통해 **이중 지불(Double Spending)** 문제를 원천 차단했습니다.
+
+#### 📊 Result
+* 악의적 노드 비율이 20%일 때도 유효 거래(Valid Tx)만이 원장에 기록됨을 확인.
+* P2P 거래의 신뢰성을 중앙 서버 없이 알고리즘적으로 보장.
 
 ### 4-2. Macro-scale Simulation (Tick = 6 hours)
 * **목표:** 장기적인 에너지 수급 패턴 분석 및 **RE100 등 비즈니스 모델** 실효성 검증.
