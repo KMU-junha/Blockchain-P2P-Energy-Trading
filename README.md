@@ -1,6 +1,11 @@
 # ⚡ Blockchain-based P2P Energy Trading Simulation
 > **NetLogo를 활용한 블록체인 기반 분산 전력 거래 멀티 에이전트 시뮬레이션**
 
+### 🏆 2025 대한전기학회 하계학술대회 '스마트 에너지 챌린지' 장려상 수상
+**Awarded Encouragement Prize at 2025 KIEE Summer Conference (Smart Energy Challenge - Capstone Design Category)**
+
+---
+
 ## 1. Project Overview (프로젝트 개요)
 * **기간:** 2025.03 ~ 2025.07 (약 4개월)
 * **참여 인원:** 3명
