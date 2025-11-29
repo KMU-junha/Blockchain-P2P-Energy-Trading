@@ -36,7 +36,7 @@
 * **사용 파일:** `ticks6h_final.nlogo`
 
 ## 5. Simulation Results (결과)
-[포스터..pdf](https://github.com/user-attachments/files/23833066/default.pdf)
+<img width="720" height="1017" alt="smartenergy_poster" src="https://github.com/user-attachments/assets/e81f6547-d26b-4ebe-a4aa-1e094274417b" />
 
 * **실험 환경:** 총 N개의 에이전트(Prosumer 50, Consumer 50 등) 생성.
 * **결과:**
