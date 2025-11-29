@@ -36,6 +36,8 @@
 * **사용 파일:** `ticks6h_final.nlogo`
 
 ## 5. Simulation Results (결과)
+[포스터..pdf](https://github.com/user-attachments/files/23833066/default.pdf)
+
 * **실험 환경:** 총 N개의 에이전트(Prosumer 50, Consumer 50 등) 생성.
 * **결과:**
     * 시뮬레이션 틱(Tick)이 지날수록 전력 수급 불균형이 해소되는 패턴 확인.
