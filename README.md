@@ -41,12 +41,26 @@
 * 악의적 노드 비율이 20%일 때도 유효 거래(Valid Tx)만이 원장에 기록됨을 확인.
 * P2P 거래의 신뢰성을 중앙 서버 없이 알고리즘적으로 보장.
 
-### 4-2. Macro-scale Simulation (Tick = 6 hours)
-* **목표:** 장기적인 에너지 수급 패턴 분석 및 **RE100 등 비즈니스 모델** 실효성 검증.
-* **핵심 기능:**
-    * **장기 관찰:** 계절별/일별 태양광 발전량 변화와 소비 패턴을 장기간 추적.
-    * **사업성 분석:** 잉여 전력 거래를 통해 얻을 수 있는 경제적 이익과 RE100 달성 가능성 시뮬레이션.
-* **사용 파일:** `ticks6h_final.nlogo`
+### 4-2. Macro-scale Simulation (Tick = 6 hours) : Business Model & PPA
+기업의 RE100 달성과 에너지 비용 절감을 위한 **PPA(전력 구매 계약) 및 VPP(가상 발전소) 모델**의 경제성을 검증하는 장기 시뮬레이션입니다.
+
+#### 🛠 Key Logic & Implementation
+1.  **PPA (Power Purchase Agreement) Logic:**
+    * **Direct PPA:** 기업 노드(Company)가 발전소와 1:1로 장기 계약을 체결하여, 시장 가격(SMP) 변동과 무관하게 고정된 가격으로 전력을 공급받는 로직 구현.
+    * *Code Snippet:* `setup-ppa-contracts` 프로시저를 통해 계약 용량과 기간을 설정하고, 매 틱마다 `execute-ppa-contracts`로 우선 공급 처리.
+    * **Effect:** 전력 시장의 가격 변동성(Volatility)을 회피하고 안정적인 재생에너지 수급망 확보.
+
+2.  **VPP (Virtual Power Plant) Aggregation:**
+    * 분산된 소규모 재생에너지원(DER)을 하나의 발전소처럼 통합 관리하는 **VPP 노드** 도입.
+    * 간헐적인 발전량을 VPP가 통합하여 PPA 계약 이행률을 높이는 구조 모델링.
+
+3.  **RE100 & Economic Analysis (경제성 분석):**
+    * **RE100 달성률 추적:** 전체 소비 전력 중 재생에너지(PPA + 자가발전) 비율을 실시간 계산.
+    * **비용 비교:** `일반 전력망 사용 시 요금` vs `PPA 계약 + 블록체인 거래 시 비용`을 비교하여 프로젝트의 손익분기점(BEP) 분석.
+
+#### 📊 Result
+* PPA 도입 시 기업의 전력 구매 비용이 연간 약 X% 절감됨을 시뮬레이션으로 확인.
+* 재생에너지 발전소 입장에서도 안정적인 수익원(Cash Flow) 확보 가능성을 입증.
 
 ## 5. Simulation Results (결과)
 <img width="720" height="1017" alt="smartenergy_poster" src="https://github.com/user-attachments/assets/e81f6547-d26b-4ebe-a4aa-1e094274417b" />
