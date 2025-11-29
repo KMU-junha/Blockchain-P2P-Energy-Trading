@@ -11,7 +11,7 @@
 * **해결 방안:**
     * **블록체인(Blockchain):** 신뢰할 수 없는 노드 간의 투명한 거래 원장(Ledger) 기록.
     * **P2P 거래:** 중개자 없이 생산자와 소비자가 직접 가격을 매칭.
-* **프로젝트 목표:** 복잡한 전력 거래 환경을 **MAS(Multi-Agent System)**로 모델링하여, 거래 성사율과 가격 수렴성을 검증하고자 함.
+* **프로젝트 목표:** 복잡한 전력 거래 환경을 **MAS(Multi-Agent System)** 로 모델링하여, 거래 성사율과 가격 수렴성을 검증하고자 함.
 
 ## 3. Tech Stack (기술 스택)
 * **Simulation Tool:** NetLogo 6.4.0 (Agent-Based Modeling Environment)
@@ -30,7 +30,7 @@
     * 넷로고의 `turtles-own` 변수를 활용하여 각 에이전트의 에너지 잔고(Balance)와 지갑(Wallet) 상태를 실시간 추적합니다.
 
 2.  **Malicious Node Simulation (공격 시뮬레이션):**
-    * 전체 네트워크의 `X%`를 악의적 노드로 설정하여, 보유하지 않은 에너지를 판매하려는 **허위 트랜잭션(False Transaction)**을 지속적으로 생성합니다.
+    * 전체 네트워크의 `X%`를 악의적 노드로 설정하여, 보유하지 않은 에너지를 판매하려는 **허위 트랜잭션(False Transaction)** 을 지속적으로 생성합니다.
     * *Code Snippet:* `if malicious? [ set offer-amount (energy + random-float 10.0) ]` (실제 보유량보다 과장된 주문 생성)
 
 3.  **Smart Contract Validation (보안 검증):**
