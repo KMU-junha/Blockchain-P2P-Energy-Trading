@@ -1,15 +1,16 @@
 # ⚡ Blockchain-based P2P Energy Trading Simulation
 > **NetLogo를 활용한 블록체인 기반 분산 전력 거래 멀티 에이전트 시뮬레이션**
 
-### 🏆 2025 대한전기학회 하계학술대회 '스마트 에너지 챌린지' 장려상 수상
-**Awarded Encouragement Prize at 2025 KIEE Summer Conference (Smart Energy Challenge - Capstone Design Category)**
-
----
-
 ## 1. Project Overview (프로젝트 개요)
 * **기간:** 2025.03 ~ 2025.07 (약 4개월)
 * **참여 인원:** 3명
 * **핵심 내용:** 중앙 서버 없는 분산 환경(Decentralized)에서 다수의 프로슈머(Prosumer) 에이전트들이 블록체인 스마트 컨트랙트 규칙에 따라 잉여 전력을 자율적으로 거래하는 시뮬레이션 모델 구현.
+
+### 🏅 Achievements (수상 성과)
+* **2025 대한전기학회(KIEE) 하계학술대회 '스마트 에너지 챌린지'**
+    * **수상:** 장려상 (Encouragement Award)
+    * **부문:** 캡스톤디자인 (Capstone Design)
+    * **의의:** 블록체인 기술을 전력 시장(PPA/RE100)에 접목한 아이디어의 독창성과 시뮬레이션 구현의 완성도를 인정받음.
 
 ## 2. Motivation & Problem Definition (배경 및 문제 정의)
 * **기존 전력망의 한계:** 중앙 집중형 전력망(Centralized Grid)은 송배전 손실이 크고, 소규모 재생에너지(DER) 거래 시 중개 비용이 발생하는 비효율성 존재.
